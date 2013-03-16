@@ -1,4 +1,5 @@
 set(SRC_APP 
+                "${PUBLIC_INCLUDE_DIR}/IBroker.h"
 		"src/main.cpp"
 				)
 
