@@ -1,9 +1,26 @@
 #pragma once
 
-class IBroker
+#include "IBroker.h"
+#include <map>
+
+class Broker : public IBroker
 {
 public:
-    virtual ~IBroker(){}
-    virtual void RegisterInterface() = 0;
-    virtual void QuerryInterface() = 0;
+
+    ~Broker();
+
+    void RegisterInterface(std::string& LibName, ILib& lib);
+
+    ILib* QueryInterface(std::string& LibName);
+
+
+    static IBroker* Make();
+
+private:
+    Broker();
+    std::map<std::string,ILib> m_Libs;
+
 };
+
+
+

@@ -1,4 +1,6 @@
-#include "Broker.h"
+#include "PBroker.h"
+#include <typeinfo>
+#include "lib1.h"
 
 Broker::Broker()
 {
@@ -10,12 +12,21 @@ Broker::~Broker()
 
 }
 
-void Broker::RegisterInterface()
+void Broker::RegisterInterface(std::string &LibName, ILib &lib)
+{
+
+    m_Libs[LibName] = lib;
+
+}
+
+ILib* Broker::QueryInterface(std::string& LibName)
 {
 
 }
 
-void Broker::QuerryInterface()
-{
 
+
+IBroker* Broker::Make()
+{
+    return new Broker();
 }
