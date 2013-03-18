@@ -7,39 +7,17 @@
 
 using namespace std;
 
-template <class T>
-class QueriedObject {
-
-  public:
-    QueriedObject()
-    {
-
-    }
-};
-
-
 int main()
 {
-    IBroker* broker = Broker::Make();
+    Broker broker;
 
-    ILib *test = new Lib1(5);
+    ILib *test;
     std::string bluh = "Lib1";
 
-    broker->RegisterInterface(bluh, *test);
+    broker.RegisterInterface(bluh, new Lib1(4));
+    test = broker.QueryInterface(bluh);
 
-    Lib1* test2;// = (Lib1*)test;
-
-    QueriedObject<Lib1*> qtest = broker->QueryInterface(bluh);
-
-    dynamic_cast
-
-    cout << test2->test() << endl;
-
-    //test2 = broker->QueryInterface2<Lib1>(bluh);
-
-
-   // broker->QueryInterface();
-
+    cout << ((Lib1*)test)->test() << endl;
 
     return 0;
 
