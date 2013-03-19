@@ -6,19 +6,18 @@
 class Broker : public IBroker
 {
 public:
-
-    Broker();
-
     ~Broker();
 
     void RegisterInterface(std::string& LibName, ILib *lib);
 
     ILib* QueryInterface(std::string& LibName);
 
-    static IBroker* Make();
+    static IBroker* Make() { return new Broker;}
 
 private:
-    std::map<std::string,ILib> m_Libs;
+    Broker();
+
+    std::map<std::string,ILib*> m_Libs;
 
 };
 

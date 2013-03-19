@@ -1,15 +1,15 @@
 #pragma once
 
-#include "ILib.h"
 #include <iostream>
+
+class ILib;
 
 class IBroker
 {
 public:
     virtual ~IBroker(){}
+
     virtual void RegisterInterface(std::string& LibName, ILib* lib) = 0;
 
-    ILib* QueryInterface(std::string& LibName);
-
-
+    virtual ILib* QueryInterface(std::string& LibName) = 0;
 };

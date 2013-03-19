@@ -8,7 +8,6 @@ set(PUBLIC_INCLUDE_DIR "${CMAKE_SOURCE_DIR}/Include")
 
 set(LIBRARIES
                 "Broker"
-		"Lib1"
 			)
 
 include_directories(${PUBLIC_INCLUDE_DIR})

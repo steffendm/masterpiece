@@ -9,15 +9,16 @@ using namespace std;
 
 int main()
 {
-    Broker broker;
+    IBroker* broker = Broker::Make();
 
-    ILib *test;
+    ILib *test = new Lib1(4);
     std::string bluh = "Lib1";
 
-    broker.RegisterInterface(bluh, new Lib1(4));
-    test = broker.QueryInterface(bluh);
+    broker->RegisterInterface(bluh, new Lib1(4));
 
-    cout << ((Lib1*)test)->test() << endl;
+    Lib1 *test2 = ILib::QueryBroker<Lib1>(*broker,bluh);
+
+    cout << test2->test() << endl;
 
     return 0;
 
