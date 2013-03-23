@@ -8,9 +8,9 @@ class Broker : public IBroker
 public:
     ~Broker();
 
-    void RegisterInterface(std::string& LibName, ILib *lib);
+    void RegisterInterface(const std::string& LibName, ILib *lib);
 
-    ILib* QueryInterface(std::string& LibName);
+    ILib* QueryInterface(const std::string& LibName);
 
     static IBroker* Make() { return new Broker;}
 

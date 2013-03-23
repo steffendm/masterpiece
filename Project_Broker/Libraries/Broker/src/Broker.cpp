@@ -1,7 +1,4 @@
 #include "PBroker.h"
-#include <typeinfo>
-#include "lib1.h"
-
 
 Broker::Broker()
 {
@@ -13,13 +10,13 @@ Broker::~Broker()
 
 }
 
-void Broker::RegisterInterface(std::string &LibName, ILib* lib)
+void Broker::RegisterInterface(const std::string &LibName, ILib* lib)
 {
     if(lib != NULL)
         m_Libs[LibName] = lib;
 }
 
-ILib* Broker::QueryInterface(std::string& LibName)
+ILib* Broker::QueryInterface(const std::string& LibName)
 {
     if(m_Libs.find(LibName) != m_Libs.end())
     {

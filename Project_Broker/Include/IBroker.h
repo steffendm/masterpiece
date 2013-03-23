@@ -9,7 +9,7 @@ class IBroker
 public:
     virtual ~IBroker(){}
 
-    virtual void RegisterInterface(std::string& LibName, ILib* lib) = 0;
+    virtual void RegisterInterface(const std::string& LibName, ILib* lib) = 0;
 
-    virtual ILib* QueryInterface(std::string& LibName) = 0;
+    virtual ILib* QueryInterface(const std::string& LibName) = 0;
 };
